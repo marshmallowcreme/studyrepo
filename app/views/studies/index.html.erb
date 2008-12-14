@@ -1,0 +1,34 @@
+<h1>Listing studies</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th>User</th>
+    <th>Notes</th>
+    <th>Source</th>
+    <th>Source url</th>
+  </tr>
+
+<% for study in @studies %>
+  <tr>
+    <td><%=h study.title %></td>
+    <td><%=h study.body %></td>
+    <td><%=h study.created_at %></td>
+    <td><%=h study.updated_at %></td>
+    <td><%=h study.user_id %></td>
+    <td><%=h study.notes %></td>
+    <td><%=h study.source_id %></td>
+    <td><%=h study.source_url %></td>
+    <td><%= link_to 'Show', study %></td>
+    <td><%= link_to 'Edit', edit_study_path(study) %></td>
+    <td><%= link_to 'Destroy', study, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New study', new_study_path %>
